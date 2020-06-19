@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import AdicionarEnvolvido from '../adicionarEnvolvido';
+import AdicionarVeiculo from '../adicionarVeiculo';
 
-export default class QuartoPasso extends Component {
+export default class QuintoPasso extends Component {
 
     state = {
         show: false,
@@ -20,7 +20,7 @@ export default class QuartoPasso extends Component {
         this.props.nextStep();
     }
 
-    adicionarEnvolvido = () => {
+    adicionarVeiculo = () => {
 
         this.setState({
             show: !this.state.show,
@@ -43,26 +43,22 @@ export default class QuartoPasso extends Component {
                 <div className="divider"></div>
                 <div className="section">
                     <div className="center-align">
-                        {this.state.show2 && <button onClick={this.adicionarEnvolvido}
-                            className="waves-effect waves-light btn-large grey App">
-                            <i className="material-icons left large">add</i>Adicionar Envolvido</button>}
+                        {this.state.show2 && <button onClick={this.adicionarVeiculo} 
+                         className="waves-effect waves-light btn-large grey App">
+                         <i className="material-icons left large">add</i>Adicionar Veiculo</button>}
                     </div>
                     <br />
-                    {this.state.show && <AdicionarEnvolvido handleChange={handleChange} values={values} />}
+                    {this.state.show && <AdicionarVeiculo handleChange={handleChange} values={values} />}
                     <br />
-                    {this.state.show && <button onClick={this.adicionarEnvolvido}
-                        className="waves-effect waves-light btn-large blue App">Continuar</button>}
-                    {this.state.show2 && values.envolvidos.map(function (e) {
-                        return <p><strong>Envolvido: </strong>{e.nome}</p>
-                    })
-                    }
+                    {this.state.show && <button onClick={this.adicionarVeiculo} 
+                     className="waves-effect waves-light btn-large blue App">Continuar</button>}
                 </div>
                 <form className="col s10">
                     <div className="row">
                         <button onClick={this.back}
-                            className="waves-effect waves-light btn red darken-1 col s3 offset-s2" href="/">Voltar</button>
-                        <button onClick={this.continue}
-                            className="waves-effect waves-light btn green darken-1 col s3 offset-s2" href="/">Proximo</button>
+                          className="waves-effect waves-light btn red darken-1 col s3 offset-s2" href="/">Voltar</button>
+                        <button onClick={this.continue} 
+                         className="waves-effect waves-light btn green darken-1 col s3 offset-s2" href="/">Proximo</button>
                     </div>
                 </form>
             </div>

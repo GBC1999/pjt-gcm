@@ -13,16 +13,21 @@ src/index.js
 src/setupTests.js
 src/main.js
 src/adicionarEnvolvido.js
+src/adicionarVeiculo.js
 src/components/Header.js
 src/Passos/PrimeiroPasso.js
 src/Passos/SegundoPasso.js
 src/Passos/TerceiroPasso.js
 src/Passos/QuartoPasso.js
+src/Passos/QuintoPasso.js
 src/Passos/PassoFinal.js
-public/sw/registra.js
+src/services/database.js
+src/services/ocorrencia.js
+src/sw/registra.js
 public/brazao192.png
 public/brazao512.png
 public/favicon.ico
+public/manifest.json
 
 NETWORK:
 *

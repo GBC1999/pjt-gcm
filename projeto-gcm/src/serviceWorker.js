@@ -9,40 +9,30 @@ let arquivos = [
   "src/setupTests.js",
   "src/main.js",
   "src/adicionarEnvolvido.js",
+  "src/adicionarVeiculo.js",
   "src/components/Header.js",
   "src/Passos/PrimeiroPasso.js",
   "src/Passos/SegundoPasso.js",
   "src/Passos/TerceiroPasso.js",
   "src/Passos/QuartoPasso.js",
+  "src/Passos/QuintoPasso.js",
   "src/Passos/PassoFinal.js",
-  "public/sw/registra.js",
+  "src/services/database.js",
+  "src/services/ocorrencia.js",
+  "src/sw/registra.js",
   "public/brazao192.png",
   "public/brazao512.png",
-  "public/favicon.ico"
+  "public/favicon.ico",
+  "public/manifest.json"
 
 ]
 
-
-// register() is not called by default.
 
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
 // existing tabs open on the page have been closed, since previously cached
 // resources are updated in the background.
-
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
-
-const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
-);
 
 export function register(config) {   
   window.addEventListener('load', () => {
@@ -54,6 +44,7 @@ export function register(config) {
       checkValidServiceWorker(swUrl, config);
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      register.addAll(arquivos); //Adicionei para carregar os arquivos quando instalado   
     }, function (err) {
       // registration failed :(
       registerValidSW(swUrl, config);
@@ -68,18 +59,13 @@ export function register(config) {
       let resposta = respostaCache ? respostaCache : fetch(pedido)
       return resposta
 
-      var respostaCache = resposta.clone();
-
     })
 
     event.respondWith(promiseResposta)
 
   });
 
-  register.addAll(arquivos); //Adicionei para carregar os arquivos
-
 }
-
 
 function registerValidSW(swUrl, config) {
 navigator.serviceWorker

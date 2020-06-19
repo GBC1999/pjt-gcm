@@ -3,6 +3,7 @@ import PrimeiroPasso from './Passos/PrimeiroPasso'
 import SegundoPasso from './Passos/SegundoPasso'
 import TerceiroPasso from './Passos/TerceiroPasso'
 import QuartoPasso from './Passos/QuartoPasso'
+import QuintoPasso from './Passos/QuintoPasso'
 import PassoFinal from './Passos/PassoFinal'
 
 export default class Main extends Component {
@@ -34,10 +35,9 @@ export default class Main extends Component {
             bairro: '',
             nome: '',
 
-            envolvido: [],
-  
-            dados: []
-    
+            envolvidos: [],
+            veiculos: [],
+      
         }
 
     handleChange = input => e =>{
@@ -68,14 +68,14 @@ export default class Main extends Component {
             viatura, horaIrradiacao, horaLocal, primeiroTermino,
             segundoTermino, kmIrradiacao, kmLocal, kmPrimeiroTermino,
             kmSegundoTermino, naturezaDaOcorrencia, codigoDaOcorrencia,
-            local, bairro, envolvido
+            local, bairro, envolvidos, veiculos
             } = this.state; 
 
         const values = { numeroDaOcorrencia, data, horaFato, numTalao, 
             viatura, horaIrradiacao, horaLocal, primeiroTermino,
             segundoTermino, kmIrradiacao, kmLocal, kmPrimeiroTermino,
             kmSegundoTermino, naturezaDaOcorrencia, codigoDaOcorrencia,
-            local, bairro, envolvido};
+            local, bairro, envolvidos, veiculos};
 
         if(step === 1) {
             return(
@@ -121,6 +121,17 @@ export default class Main extends Component {
         }
 
         if(step === 5) {
+            return(
+                <QuintoPasso 
+                    nextStep = {this.nextStep}
+                    prevStep = {this.prevStep}
+                    handleChange = {this.handleChange}
+                    values = {values}
+                />
+            )
+        }
+
+        if(step === 6) {
             return(
                 <PassoFinal 
                     prevStep = {this.prevStep}
